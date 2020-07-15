@@ -19,19 +19,24 @@ app.get('/', (req, res) => {
 })
 
 app.get('/todos', (req, res) => {
-    res.render('todos', {
-        items: items
-    });
+    let q = req.query.q;
+    if(!q) {
+        res.render('todos', {
+            items: items
+        });
+    } else {
+        let matchesItems = items.filter(item => {
+            return item.todo.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+        })
+        res.render('todos', {
+            items: matchesItems,
+            q: q
+        })
+    }
 })
 
 app.get('/todos/search', (req, res) => {
-    let q = req.query.q;
-    let matchesItems = items.filter(item => {
-        return item.todo.toLowerCase().indexOf(q.toLowerCase()) !== -1;
-    })
-    res.render('todos', {
-        items: matchesItems
-    })
+    
 })
 
 app.listen(port, () => {
