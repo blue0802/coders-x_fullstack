@@ -1,0 +1,6 @@
+form(action="/todos", method="GET")
+    input(type="text", name="q", value=q)
+    button search
+ul
+    each item in items
+        li=item.text
