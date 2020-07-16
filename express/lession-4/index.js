@@ -1,8 +1,12 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 
 const port = process.env.port || 3000;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.set('views', './views');
 app.set('view engine', 'pug');
@@ -33,6 +37,15 @@ app.get('/todos', (req, res) => {
             q: q
         })
     }
+})
+
+app.get('/todos/create', (req, res) => {
+    res.render('create');
+})
+
+app.post('/todos/create', (req, res) => {
+    items.push(req.body);
+    res.redirect('/todos');
 })
 
 app.listen(port, () => {
