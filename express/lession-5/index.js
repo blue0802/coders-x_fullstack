@@ -33,7 +33,7 @@ app.get('/todos', (req, res) => {
         });
     } else {
         let matchesItems = db.get('items').value().filter(item => {
-            return item.todo.toLowerCase().indexOf(q.toLowerCase()) !== -1;
+            return item.text.toLowerCase().indexOf(q.toLowerCase()) !== -1;
         })
         res.render('todos', {
             items: matchesItems,

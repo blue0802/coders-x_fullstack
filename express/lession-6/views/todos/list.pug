@@ -1,0 +1,6 @@
+h1 Todo list
+ul
+    each item in items
+        li=item.text
+            a(href="/todos/" + item.id + "/delete")  delete
+a(href="/todos/create") Create
