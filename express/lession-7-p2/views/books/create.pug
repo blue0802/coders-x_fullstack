@@ -1,0 +1,12 @@
+h1 Add a book to list
+form(action="/books/create", method="POST")
+    div
+        label Title
+        div    
+            input(type="text", name="title")
+    div
+        label Description
+        div    
+            textarea(cols="30", rows="10", name="description")
+    button Add
+a(href="/books") Prev
