@@ -1,0 +1,22 @@
+{
+  "books": [
+    {
+      "title": "Endless Referrals",
+      "description": "This book will teach you how to attract those who are interested in what you are selling with his proven relationship-building principles. It’s an excellent read for any entrepreneur, and it is full of great content.",
+      "id": "ccvyh5-Bl"
+    }
+  ],
+  "users": [
+    {
+      "name": "blue82",
+      "id": "DpNnc-Atx"
+    }
+  ],
+  "id": [
+    {
+      "idUser": "DpNnc-Atx",
+      "idBook": "ccvyh5-Bl",
+      "id": "mbjkmAunp"
+    }
+  ]
+}
