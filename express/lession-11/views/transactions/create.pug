@@ -1,0 +1,17 @@
+extends ../layout/common
+
+block content
+    h1 Create Transaction
+    form(action="", method="POST")
+        div
+            label User's ID: 
+            select(name="idUser")
+                each user in users
+                    option(value="" + user.id)=user.id
+        div
+            label Book's ID: 
+            select(name="idBook")
+                each book in books
+                    option(value="" + book.id)=book.id
+        br
+        button Create

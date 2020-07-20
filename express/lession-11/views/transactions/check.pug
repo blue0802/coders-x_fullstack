@@ -1,0 +1,17 @@
+extends ../layout/common
+
+block content
+    h1 Status
+    p Is complete: 
+        span
+            strong=id.isComplete
+    form(action="", method="POST")
+        if id.isComplete
+            input(type="checkbox", name="isComplete", checked)
+        else
+            input(type="checkbox", name="isComplete")
+        label Complete
+        br
+        button Save
+    div
+        a(href="/transactions") Prev
