@@ -6,5 +6,5 @@ block content
         form.mt-5(action="/books/" + book.id + "/update", method="POST")
             .form-group
                 label(for='title') Title
-                input#title.form-control(type='text', name="title")
+                input#title.form-control(type='text', name="title", required)
             button.btn.btn-primary(type='submit') Update

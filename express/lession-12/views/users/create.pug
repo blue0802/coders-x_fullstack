@@ -6,5 +6,5 @@ block content
         form(action="/users/create", method="POST")
             .form-group
                 label(for='username') Username
-                input#username.form-control(type='text', name="name")
+                input#username.form-control(type='text', name="name", required)
             button.btn.btn-primary(type='submit') Add

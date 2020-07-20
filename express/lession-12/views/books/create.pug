@@ -6,7 +6,7 @@ block content
         form(action="/books/create", method="POST")
             .form-group
                 label(for='title') Title
-                input#title.form-control(type='text', name="title")
+                input#title.form-control(type='text', name="title", required)
             .form-group
                 label(for='description') Example textarea
                 textarea#description.form-control(rows='3', name="description")

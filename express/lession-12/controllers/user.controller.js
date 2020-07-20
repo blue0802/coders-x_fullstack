@@ -12,8 +12,12 @@ module.exports = {
     },
     createPost: (req, res) => {
         req.body.id = shortid.generate();
-        db.get('users').push(req.body).write();
-        res.redirect('/users');
+        if(req.body.name.length <= 30) {
+            db.get('users').push(req.body).write();
+            res.redirect('/users');
+        } else {
+            res.send("Input invalid")
+        }
     },
     idRoute: (req, res) => {
         let id = req.params.id;
@@ -47,15 +51,19 @@ module.exports = {
     },
     idRouteUpdatePost: (req, res) => {
         let id = req.params.id;
-        let data = db.get('users').find({id: id}).value();
-        if(data) {
-            db.get('users')
-              .find({ id: id })
-              .assign({ name: req.body.name })
-              .write()
+        if(req.body.name.length <= 30) {
+            let data = db.get('users').find({id: id}).value();
+            if(data) {
+                db.get('users')
+                  .find({ id: id })
+                  .assign({ name: req.body.name })
+                  .write()
+            } else {
+                res.send("Not found!");
+            }
+            res.redirect('/users');
         } else {
-            res.send("Not found!");
+            res.send("Input invalid")
         }
-        res.redirect('/users');
     }
 }
