@@ -1,0 +1,17 @@
+extends ../layout/common
+
+block content
+    h1 Users
+    ul
+        each user in users
+            li=user.name
+                span  
+                    a(href="/users/" + user.id) view
+                span  
+                    a(href="/users/" + user.id + "/update") update
+                span  
+                    a(href="/users/" + user.id + "/delete") delete
+    div
+        a(href="/users/create") Add
+    div
+        a(href="/") Home
