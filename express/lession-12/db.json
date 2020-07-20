@@ -1,0 +1,38 @@
+{
+  "books": [
+    {
+      "title": "Think And Grow Rich",
+      "description": "Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.",
+      "id": "pV8YUoS-m"
+    },
+    {
+      "title": "The Psychology Of Selling",
+      "description": "Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.",
+      "id": "UODb4GzqU"
+    }
+  ],
+  "users": [
+    {
+      "name": "blue82",
+      "id": "_KAuYUtLu"
+    },
+    {
+      "name": "amun82",
+      "id": "2M2zHYxcx"
+    }
+  ],
+  "id": [
+    {
+      "idUser": "DpNnc-Atx",
+      "idBook": "ccvyh5-Bl",
+      "id": "g4Z2Abhp0",
+      "isComplete": false
+    },
+    {
+      "idUser": "_KAuYUtLu",
+      "idBook": "UODb4GzqU",
+      "id": "F_PvmgACK",
+      "isComplete": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Modifying book's title
+        form.mt-5(action="/books/" + book.id + "/update", method="POST")
+            .form-group
+                label(for='title') Title
+                input#title.form-control(type='text', name="title")
+            button.btn.btn-primary(type='submit') Update

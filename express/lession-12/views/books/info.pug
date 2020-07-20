@@ -1,0 +1,12 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Book's information
+        dl.row.mt-5
+            dt.col-sm-3 Title
+            dd.col-sm-9 Description
+        hr
+        dl.row.mt-3
+            dt.col-sm-3=book.title
+            dd.col-sm-9=book.description

@@ -1,0 +1,10 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Transactions
+        form(action="/users/create", method="POST")
+            .form-group
+                label(for='username') Username
+                input#username.form-control(type='text', name="name")
+            button.btn.btn-primary(type='submit') Add

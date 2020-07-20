@@ -1,0 +1,22 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Users
+        table.table.table-md.mt-5
+            thead
+                tr
+                    th(scope='col') Username
+                    th(scope='col')
+                    th(scope='col')
+                    th(scope='col')
+            tbody
+                each user in users
+                    tr
+                        td(colspan="3")=user.name
+                        td
+                            a.btn.btn-info.mr-3(href="/users/" + user.id) view
+                            a.btn.btn-primary.mr-3(href="/users/" + user.id + "/update") update
+                            a.btn.btn-danger(href="/users/" + user.id + "/delete") delete
+        div
+            a.btn.btn-success(href="/users/create") Add
