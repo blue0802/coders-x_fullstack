@@ -1,0 +1,20 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Create Transaction
+        form(action="", method="POST")
+            div
+                label User's ID: 
+                select.custom-select(name="idUser")
+                    option(selected='') Open this select menu
+                    each user in users
+                        option(value="" + user.id)=user.id
+            div
+                label Book's ID: 
+                select.custom-select(name="idBook")
+                    option(selected='') Open this select menu
+                    each book in books
+                        option(value="" + book.id)=book.id
+            br
+            button.btn.btn-primary Create

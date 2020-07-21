@@ -1,0 +1,19 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Transactions
+        table.table.table-md.mt-5
+            thead
+                tr
+                    th(scope='col') ID
+                    th(scope='col')
+                    th(scope='col')
+            tbody
+                each i in id
+                    tr
+                        td(colspan="2")=i.id
+                        td
+                            a.btn.btn-info.mr-3(href="/transactions/" + i.id + "/is-complete") Check
+        div
+            a.btn.btn-success(href="/transactions/create") Create

@@ -1,0 +1,13 @@
+extends ../index
+
+
+block content
+    .container-md.mt-5
+        h1 User's information
+        dl.row.mt-5
+            dt.col-sm-3 ID
+            dd.col-sm-9 Username
+        hr
+        dl.row.mt-3
+            dt.col-sm-3=user.id
+            dd.col-sm-9=user.name

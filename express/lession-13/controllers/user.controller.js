@@ -17,14 +17,9 @@ module.exports = {
     },
     idRoute: (req, res) => {
         let id = req.params.id;
-        let data = db.get('users').find({id: id}).value();
-        if(data !== []) {
-            res.render('users/info', {
-                user: data
-            })
-        } else {
-            res.send("Not found!");
-        }
+        res.render('users/info', {
+            user: db.get('users').find({id: id}).value()
+        })
     },
     idRouteDelete: (req, res) => {
         let id = req.params.id;
@@ -36,26 +31,18 @@ module.exports = {
     idRouteUpdate: (req, res) => {
         let id = req.params.id;
         let data = db.get('users').find({id: id}).value();
-        if(data !== []) {
-            res.render('users/update', {
-                user: data
-            })
-        } else {
-            res.send("Not found!");
-        }
+        res.render('users/update', {
+            user: db.get('users').find({id: id}).value()
+        })
         res.redirect('/users');
     },
     idRouteUpdatePost: (req, res) => {
         let id = req.params.id;
         let data = db.get('users').find({id: id}).value();
-        if(data !== []) {
-            db.get('users')
-              .find({ id: id })
-              .assign({ name: req.body.name })
-              .write()
-        } else {
-            res.send("Not found!");
-        }
+        db.get('users')
+            .find({ id: id })
+            .assign({ name: req.body.name })
+            .write()
         res.redirect('/users');
     }
 }
