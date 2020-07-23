@@ -1,0 +1,16 @@
+extends ./index
+
+block content
+    .container-md.mt-5
+        h1 Login
+        br
+        if err
+            .alert.alert-danger= err
+        form(action="", method="POST")
+            .form-group
+                label(for='username') Username
+                input#username.form-control(type='text', name="name", required)
+            .form-group
+                label(for='password') Password
+                input#password.form-control(type='password', name="password", required)
+            button.btn.btn-primary(type='submit') Login
