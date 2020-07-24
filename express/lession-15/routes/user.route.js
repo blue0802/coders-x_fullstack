@@ -2,14 +2,9 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/user.controller');
 const validate = require('../validate/user.validate')
-const middleware = require('../middleware/login.middleware')
 
 
 router.get('/', controller.list);
-
-router.get('/create', controller.create);
-
-router.post('/create', validate.createPost, controller.createPost);
 
 router.get('/:id', validate.isRoute, controller.idRoute);
 

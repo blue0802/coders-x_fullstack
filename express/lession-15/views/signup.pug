@@ -1,0 +1,28 @@
+extends ./index
+
+block content
+    .container-md.mt-5
+        h1 Create A New User
+        br
+        if err
+            .alert.alert-danger= err
+        form(action="", method="POST")
+            .form-group
+                label(for='username') Username
+                if value
+                    input#username.form-control(type='text', name="username", value=value.username, required)
+                else
+                    input#username.form-control(type='text', name="username", required)
+            .form-group
+                label(for='email') Email
+                if value
+                    input#email.form-control(type='email', name="email", value=value.email, required)
+                else
+                    input#email.form-control(type='email', name="email", required)
+            .form-group
+                label(for='password') Password
+                if value
+                    input#password.form-control(type='password', name="password", value=value.password, required)
+                else
+                    input#password.form-control(type='password', name="password",  value="123123",required)
+            button.btn.btn-primary(type='submit') Create

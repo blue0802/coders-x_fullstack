@@ -4,7 +4,7 @@ const shortid = require('shortid');
 module.exports = {
     list: (req, res) => {
         res.render('transactions/list', {
-            id: db.get('id').value()
+            id: db.get('id').find({"idUser": req.cookies.userId}).value()
         })
     },
     create: (req, res) => {

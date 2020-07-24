@@ -1,19 +1,10 @@
 const db = require('../db');
-const shortid = require('shortid');
 
 module.exports = {
     list: (req, res) => {
         res.render('users/list', {
             users: db.get('users').value()
         });
-    },
-    create: (req, res) => {
-        res.render('users/create');
-    },
-    createPost: (req, res) => {
-        req.body.id = shortid.generate();
-        db.get('users').push(req.body).write();
-        res.redirect('/users');
     },
     idRoute: (req, res) => {
         let id = req.params.id;

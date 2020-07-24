@@ -13,22 +13,25 @@
   ],
   "users": [
     {
-      "name": "blue82",
+      "username": "blue82",
+      "email": "blue82@gmail.com",
       "password": "123456",
-      "id": "nZAMkmY78"
+      "id": "R0ksdsHnp",
+      "isAdmin": true
+    },
+    {
+      "username": "amun82",
+      "email": "amun82@gmail.com",
+      "password": "123123",
+      "id": "-TG6and2Q",
+      "isAdmin": false
     }
   ],
   "id": [
     {
-      "idUser": "DpNnc-Atx",
-      "idBook": "ccvyh5-Bl",
-      "id": "g4Z2Abhp0",
-      "isComplete": false
-    },
-    {
-      "idUser": "_KAuYUtLu",
-      "idBook": "UODb4GzqU",
-      "id": "F_PvmgACK",
+      "idUser": "-TG6and2Q",
+      "idBook": "pV8YUoS-m",
+      "id": "wyrEdcsGb",
       "isComplete": false
     }
   ]

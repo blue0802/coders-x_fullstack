@@ -2,7 +2,7 @@ extends ./layout/common
 
 block menu
     nav.navbar.navbar-expand-lg.navbar-light.bg-light
-        a.navbar-brand(href='#') Logo
+        a.navbar-brand(href='/') Logo
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
             span.navbar-toggler-icon
         #navbarNav.collapse.navbar-collapse
@@ -16,5 +16,7 @@ block menu
                 li.nav-item
                     a.nav-link(href='/transactions') Transactions
                 li.nav-item
-                    a.nav-link(href='/auth/login') Login
+                    a.nav-link(href='/auth/login') Log In
+                li.nav-item
+                    a.nav-link(href='/auth/logout') Log Out
 
