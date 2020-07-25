@@ -1,0 +1,38 @@
+{
+  "books": [
+    {
+      "title": "Endless Referrals",
+      "description": "Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.",
+      "id": "pV8YUoS-m"
+    },
+    {
+      "title": "The Psychology Of Selling",
+      "description": "Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.",
+      "id": "Em-d9jWjy"
+    }
+  ],
+  "users": [
+    {
+      "username": "admin82",
+      "email": "admin82@gmail.com",
+      "password": "$2b$10$jOX7aigPMl8j/IycLvG4SOD2AZlbzCi1jUoCNHnjzv9wPqvaAwQ3a",
+      "id": "sTQ2nqYeq",
+      "isAdmin": true
+    },
+    {
+      "username": "blue82",
+      "email": "blue82@gmail.com",
+      "password": "$2b$10$tPRJun7IPZkP.byIdEOCLeIo24P1Cg7KdRpjglMJCzA/Dxn/0HzeO",
+      "id": "Zw04ZOwFE",
+      "isAdmin": false
+    }
+  ],
+  "id": [
+    {
+      "idUser": "-TG6and2Q",
+      "idBook": "pV8YUoS-m",
+      "id": "wyrEdcsGb",
+      "isComplete": false
+    }
+  ]
+}
