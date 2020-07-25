@@ -1,6 +1,8 @@
 const db = require('../db')
 const shortid = require('shortid')
-const md5 = require('md5')
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+var wrongLoginCount = 0;
 
 module.exports = {
     login: (req, res) => {
@@ -9,10 +11,10 @@ module.exports = {
     create: (req, res) => {
         res.render('signup');
     },
-    postLogin: (req, res) => {  
+    postLogin: async (req, res) => {  
         let acc = db.get('users')
                     .find({"email": req.body.email})
-                    .value()
+                    .value()     
         if(!acc) {
             res.render('login', {
                 err: "Account does not exist!",
@@ -20,11 +22,22 @@ module.exports = {
             })
             return;
         } 
-        if (acc.password !== md5(req.body.password)) {
-            res.render('login', {
-                err: "Wrong password!",
-                value: req.body
-            })
+
+        const match = await bcrypt.compare(req.body.password, acc.password);
+        if (!match) {
+            wrongLoginCount++;
+            console.log(wrongLoginCount);
+            if(wrongLoginCount === 4) {
+                res.render('login', {
+                    err: "You can not login!",
+                    wrongLogin: true
+                })
+            } else {
+                res.render('login', {
+                    err: "Wrong password!",
+                    value: req.body
+                })
+            }
             return;
         }
         
@@ -54,11 +67,15 @@ module.exports = {
             return;
         }
 
-        req.body.id = shortid.generate();
-        req.body.isAdmin = false;
-        req.body.password = md5(req.body.password);
-        db.get('users').push(req.body).write();
-        res.redirect('/auth/login');
+        bcrypt.hash(req.body.password, saltRounds)
+        .then(hash => {
+            req.body.password = hash;
+            req.body.id = shortid.generate();
+            req.body.isAdmin = false;
+            db.get('users').push(req.body).write();
+            res.redirect('/auth/login');
+        })
+        
     },
     logout: (req, res) => {
         res.render('logout');
