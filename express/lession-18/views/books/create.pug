@@ -1,0 +1,13 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Add a book to list
+        form(action="/books/create", method="POST")
+            .form-group
+                label(for='title') Title
+                input#title.form-control(type='text', name="title", required)
+            .form-group
+                label(for='description') Example textarea
+                textarea#description.form-control(rows='3', name="description")
+            button.btn.btn-primary(type='submit') Add
