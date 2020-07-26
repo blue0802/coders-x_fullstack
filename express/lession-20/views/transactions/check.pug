@@ -1,0 +1,16 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Status
+        p Is complete: 
+            span
+                strong=id.isComplete
+        form(action="", method="POST")
+            .form-group.form-check
+                if id.isComplete
+                    input#isComplete.form-check-input(type="checkbox", name="isComplete", checked)
+                else
+                    input#isComplete.form-check-input(type="checkbox", name="isComplete")
+                label.form-check-label(for='isComplete') Check me out
+            button.btn.btn-primary(type='submit') Submit

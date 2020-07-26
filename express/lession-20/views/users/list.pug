@@ -1,0 +1,40 @@
+extends ../index
+
+block content
+    .container-md.mt-5
+        h1 Users
+        table.table.table-md.mt-5
+            thead
+                tr
+                    th(scope='col') Username
+                    th(scope='col')
+                    th(scope='col')
+                    th(scope='col') Options
+            tbody
+                each user in users
+                    if !user.isAdmin
+                        tr
+                            td(colspan="3")=user.username
+                            td
+                                a.btn.btn-info.mr-3(href="/users/" + user.id) view
+                                a.btn.btn-primary.mr-3(href="/users/" + user.id + "/update") update
+                                a.btn.btn-danger(href="/users/" + user.id + "/delete") delete
+        br
+        nav(aria-label='Page navigation example')
+            ul.pagination.justify-content-center
+                if page.current == 1
+                    li.page-item.disabled
+                        a.page-link(href="/users", tabindex='-1', aria-disabled='true') Previous
+                else
+                    li.page-item
+                        a.page-link(href="/users?page=" + page.prev, tabindex='-1', aria-disabled='true') Previous
+                
+                li.page-item.active
+                    a.page-link(href="/users?page=" + page.current)= page.current
+                li.page-item
+                    a.page-link(href="/users?page=" + page.next)= page.next
+                li.page-item
+                    a.page-link(href="/users?page=" + page.nextDouble)= page.nextDouble
+                li.page-item
+                    a.page-link(href="/users?page=" + page.next) Next
+
