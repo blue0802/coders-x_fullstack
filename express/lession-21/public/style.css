@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('./img/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.container {
+    max-width: 1000px!important;
+}

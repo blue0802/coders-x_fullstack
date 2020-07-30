@@ -1,0 +1,26 @@
+extends ../index
+
+block main
+    .container.container-sm
+        .row.mt-5
+            h1 The best sales books for sales training and learning
+            table.table.table-md.mt-5
+                thead
+                    tr
+                        th(scope='col') Title
+                        th(scope='col', width="40%")
+                        th(scope='col') Option
+                tbody
+                    each book in books
+                        tr
+                            td(colspan="2")=book.title
+                            td
+                                a.btn.btn-info.mr-3(href="/books/" + book.id) view
+                                if user.isAdmin
+                                    a.btn.btn-primary.mr-3(href="/books/" + book.id + "/update") update
+                                    a.btn.btn-danger(href="/books/" + book.id + "/delete") delete
+                                else
+                                    a.btn.btn-success(href="/transactions/" + book.id + "/rent") rent
+
+            div.mt-5
+                a.btn.btn-success(href="/books/create") New book

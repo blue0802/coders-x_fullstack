@@ -1,0 +1,14 @@
+extends ../index
+
+block main
+    .container.container-sm
+        h1.mt-5 User's information
+        dl.row.mt-5
+            dt.col-sm-3 Title
+            dt.col-sm-3 Author
+            dt.col-sm-6 Description
+        hr
+        dl.row.mt-3
+            dt.col-sm-3=book.title
+            dt.col-sm-3=book.author
+            dt.col-sm-6=book.description
