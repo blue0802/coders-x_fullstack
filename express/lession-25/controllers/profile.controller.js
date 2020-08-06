@@ -13,13 +13,13 @@ module.exports = {
             user: await User.findById(req.signedCookies.userId)
         })
     },
-    updatePost: (req, res) => {
-        cloudinary.uploader.upload(req.file.path, async (error, result) => {
+    updatePost: async (req, res) => {
+        if(req.file) {
+            let result = await cloudinary.uploader.upload(req.file.path)
             req.body.avatarUrl = result.url
-
-            await User.updateOne({ _id: req.signedCookies.userId }, req.body)
-            
-            res.redirect('/profile')
-        })
+        }
+        await User.updateOne({ _id: req.signedCookies.userId }, req.body)
+        
+        res.redirect('/profile')
     }
 }

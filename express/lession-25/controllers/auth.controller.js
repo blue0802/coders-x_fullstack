@@ -8,11 +8,6 @@ const saltRound = 10;
 
 module.exports = {
     login: async (req, res) => {
-        // res.render('auth/login', {
-        //     user: db.get('users')
-        //             .find({ "id": req.signedCookies.userId})
-        //             .value()
-        // });
         let user = await User.findById(req.signedCookies.userId)
         res.render('auth/login', {
             user: user
@@ -29,14 +24,10 @@ module.exports = {
         res.render('auth/signup')
     },
     signupPost: async (req, res) => {
-        // req.body.id = shortid.generate()
         req.body.avatarUrl = '/uploads/avatar-default.png'
         bcrypt.hash(req.body.password, saltRound)
             .then(hash => {
-                 req.body.password = hash
-                // db.get('users')
-                // .push(req.body)
-                // .write()
+                req.body.password = hash
                 let user = new User(req.body)
                 user.save()
                             
